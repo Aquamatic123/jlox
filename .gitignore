@@ -1,0 +1,8 @@
+# Emacs backup files
+*~
+\#*\#
+.#*
+
+# Compiled Java files
+*.class
+bin/
