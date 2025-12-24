@@ -1,4 +1,4 @@
-package com.craftinginterpreters.lox
+package com.craftinginterpreters.lox;
 
     import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,7 +46,7 @@ class Scanner {
 	while (!isAtEnd()) {
 	    // beginning of the next lexeme
 	    start = current;
-	    scanTokens();
+	    scanToken();
 	}
 	tokens.add(new Token(EOF,"",null,line));
 	return tokens;
@@ -123,7 +123,7 @@ class Scanner {
 	while (isDigit(peek())) advance();
 
 	if (peek() == '.' && isDigit(peekNext())) {
-	    advance();
+	    advance() ;
 
 	    while (isDigit(peek())) advance();
 	}

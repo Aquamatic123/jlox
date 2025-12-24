@@ -36,16 +36,16 @@ public class Lox {
 	for (;;) {
 	    System.out.print("> ");
 	    String line = reader.readLine();
-	    if (line == null) {
-		run(line);
-		hadError = false;
-	    }
+	    if (line == null) break;
+	    run(line);
+	    hadError = false;
+	    
 	}
     }  
 
     private static void run(String source) {
 	Scanner scanner = new Scanner(source);
-	list<Token> tokens = scanner.scanTokens();
+	List<Token> tokens = scanner.scanTokens();
 
 	// print the tokens
 	for (Token token : tokens) {
@@ -53,7 +53,7 @@ public class Lox {
 	}
     } 
 
-    private static void error(int line, String message) {
+    static void error(int line, String message) {
 	report(line, "",message);
     }
 
