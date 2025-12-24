@@ -12,12 +12,8 @@ compile:
 	@mkdir -p $(BUILD_DIR)
 	javac -d $(BUILD_DIR) $(SRC_DIR)/$(PACKAGE_PATH)/*.java
 
-# 2. Run the REPL (interactive mode)
+# 2. Run. use args="filename" to read a file
 run: compile
-	java -cp $(BUILD_DIR) $(MAIN_CLASS)
-
-# 3. Run a specific script (usage: make script args="hello.lox")
-script: compile
 	java -cp $(BUILD_DIR) $(MAIN_CLASS) $(args)
 
 # 4. Remove all compiled files
