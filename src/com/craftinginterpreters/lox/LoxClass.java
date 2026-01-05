@@ -19,6 +19,10 @@ class LoxClass implements LoxCallable {
 	    return methods.get(name);
 	}
 
+	if (superclass != null) {
+	    return superclass.findMethod(name);
+	}
+
 	return null;
     }
     
@@ -42,6 +46,7 @@ class LoxClass implements LoxCallable {
     @Override
     public int arity() {
 	LoxFunction initializer = findMethod("init");
+	if (initializer == null) return 0;
 	return initializer.arity();
     }
 
